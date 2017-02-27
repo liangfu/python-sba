@@ -28,7 +28,10 @@ elif sys.platform == 'darwin':
     # On Mac you may wish to use .dylib extension instead; be sure to rename
     # the .so in the Makefile or when installing and use the correct Mac 
     # locations here instead.
-    _libsba = ctypes.CDLL("libsba.dylib")
+    try:
+        _libsba = ctypes.CDLL("libsba.dylib")
+    except Exception:
+        _libsba = ctypes.CDLL("libsba.so")
     # THIS MAY NEED DEBUGGING
 
 elif sys.platform == 'win32' or sys.platform == 'win64':

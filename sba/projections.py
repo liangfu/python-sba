@@ -24,7 +24,10 @@ if sys.platform == 'linux2':
 elif sys.platform == 'darwin':
     # On Mac, you may wish to use .dylib rather than .so and set the paths
     # accordingly. 
-    _libsbaprojs = ctypes.CDLL("libsbaprojs.dylib")
+    try:
+        _libsbaprojs = ctypes.CDLL("libsbaprojs.dylib")
+    except Exception:
+        _libsbaprojs = ctypes.CDLL("libsbaprojs.so")
     # THIS MAY NEED DEBUGGING
 
 elif sys.platform == 'win32' or sys.platform == 'win64':

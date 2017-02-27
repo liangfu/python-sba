@@ -3,7 +3,8 @@
 # modified from Lourakis' sba demo eucsbademo.c
 #
 CC=gcc
-CFLAGS=-I.. -O3 -Wall #-g -pg
+ARCHFLAGS=-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -arch x86_64 -I/usr/local/include -L/usr/local/lib
+CFLAGS=$(ARCHFLAGS) -I.. -O3 -Wall #-g -pg
 OBJS=sbaprojs.o imgproj.o 
 SRCS=sbaprojs.c imgproj.c
 
@@ -21,10 +22,10 @@ LAPACKLIBS=-llapack -lblas #-lf2c # On systems with a FORTRAN (not f2c'ed) versi
                                             # http://www.intel.com/cd/software/products/asmo-na/eng/perflib/mkl/index.htm
 
 LIBS=-lsba $(LAPACKLIBS) -lm
-LDFLAGS=-L..
+LDFLAGS=$(ARCHFLAGS) -L..
 
 libsbaprojs.so: 
-	$(CC) -fPIC -c sbaprojs.h sbaprojs.c imgproj.c 
+	$(CC) -fPIC -c sbaprojs.h sbaprojs.c imgproj.c $(CFLAGS)
 	$(CC) -shared -Wall $(LDFLAGS) $(OBJS) -o libsbaprojs.so $(LIBS)
 # do i need to include -lsba and have libsba.so somewhere?!
 # answer is yes - they must be in the default Ubuntu 12.04 places

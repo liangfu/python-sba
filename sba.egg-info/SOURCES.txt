@@ -1,4 +1,3 @@
-.hg_archival.txt
 CHANGES.txt
 HOWTO.txt
 LICENSE.txt

@@ -2,7 +2,8 @@
 # Makefile for Sparse Bundle Adjustment demo program
 #
 CC=gcc
-CFLAGS=-I.. -O3 -Wall #-g -pg
+ARCHFLAGS=-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -arch x86_64
+CFLAGS=$(ARCHFLAGS) -I.. -O3 -Wall #-g -pg
 OBJS=eucsbademo.o imgproj.o readparams.o
 SRCS=eucsbademo.c imgproj.c readparams.c
 

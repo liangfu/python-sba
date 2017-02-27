@@ -3,6 +3,7 @@
 #
 CC=gcc
 #ARCHFLAGS=-march=pentium4 # YOU MIGHT WANT TO UNCOMMENT THIS FOR P4
+ARCHFLAGS=-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -arch x86_64
 CFLAGS=$(ARCHFLAGS) -O3 -funroll-loops -Wall #-Wstrict-aliasing #-g -pg
 OBJS=sba_levmar.o sba_levmar_wrap.o sba_lapack.o sba_crsm.o sba_chkjac.o
 SRCS=sba_levmar.c sba_levmar_wrap.c sba_lapack.c sba_crsm.c sba_chkjac.c
@@ -17,8 +18,8 @@ libsba.a: $(OBJS)
 	$(RANLIB) libsba.a
 
 libsba.so: 
-	$(CC) -fPIC -c sba.h sba_levmar.c sba_levmar_wrap.c sba_lapack.c sba_crsm.c sba_chkjac.c
-	$(CC) -shared -Wall -o libsba.so $(OBJS) -llapack -lblas
+	$(CC) -fPIC -c sba.h sba_levmar.c sba_levmar_wrap.c sba_lapack.c sba_crsm.c sba_chkjac.c $(CFLAGS)
+	$(CC) -shared -Wall -o libsba.so $(OBJS) -llapack -lblas $(CFLAGS)
 
 install: 
 	@echo To install libsba.so, do the following as root:
