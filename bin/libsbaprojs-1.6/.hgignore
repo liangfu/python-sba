@@ -1,0 +1,9 @@
+syntax: glob
+*.so
+*~
+*.gch
+*.o
+*.a
+*.pyc
+
+syntax: regexp

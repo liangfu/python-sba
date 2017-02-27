@@ -1,0 +1,8 @@
+v1.6.0, 2 July 2013 -- Ediacaran Eddy (there are no earlier revs, this revision number is chosen to match the sba revision number)
+v1.6.1, 2013 -- Cambrian Chuck - modified for BU SBA with Matlab long ints
+v1.6.2, Dec 2013 -- Ordovician Otto - switched back to original SBA, removed external dependency on my non-standard quaternion library
+v1.6.3, May 2014 -- Silurian Sally - added more bits from original SBA
+v1.6.4, Jan 2015 -- Devonian Dan - bug fixes from Isaac Yeaton and Nick Gravish
+v1.6.5, May 2015 -- Carboniferous Cally - bug fixes, change to setuptools
+v1.6.6, Jan 2016 -- Permian Pete -- maintenance update
+v1.6.7, Feb 2016 -- Triassic Trudy -- maintenance update
